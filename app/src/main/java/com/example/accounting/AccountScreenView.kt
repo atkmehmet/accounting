@@ -20,6 +20,19 @@ class AccountScreenView:ViewModel() {
     }
 
 
+    fun updateSurName(surName:String){
+        _state = _state.copy(
+            name = surName
+        )
+    }
+
+    fun updateAdress(adress:String){
+        _state = _state.copy(
+            name = adress
+        )
+    }
+
+
 
     fun updateBirthDate(date:String){
         _state = _state.copy(

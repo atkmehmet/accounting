@@ -21,6 +21,20 @@ fun AccountScreen(view: AccountScreenView){
             isEmpty = false ,
             keyboardType =  KeyboardOptions(keyboardType = KeyboardType.Text),
             informText = "Please Your Name", isHide = false)
+
+
+        EditDesign(value = view.state.surName,
+            event ={view.updateSurName( it) } ,
+            isEmpty = false ,
+            keyboardType =  KeyboardOptions(keyboardType = KeyboardType.Text),
+            informText = "Please Your SurName", isHide = false)
+
+        EditDesign(value = view.state.address,
+            event ={view.updateAdress(it) } ,
+            isEmpty = false ,
+            keyboardType =  KeyboardOptions(keyboardType = KeyboardType.Text),
+            informText = "Please Your Address", isHide = false)
+
         //DatePickerDocked()
         //DatePickerDocked2()
         EditDate(value = view.state.birthDate, event = {view.updateBirthDate(date = it)}, isEmpty =false , keyboardType = KeyboardOptions(keyboardType = KeyboardType.Text),
