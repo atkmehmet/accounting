@@ -40,7 +40,15 @@ class AccountScreenView:ViewModel() {
         )
     }
 
-    fun addList(edt:Edits){
+    fun addList(){
+        val edt = Edits(
+                    name    = state.name,
+                    surName = state.surName,
+                    address = state.address,
+                    birthDate = state.birthDate
+                )
+
+
         list.value += edt
     }
 
