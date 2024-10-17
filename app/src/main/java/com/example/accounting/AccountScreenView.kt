@@ -2,6 +2,7 @@ package com.example.accounting
 
 import androidx.compose.runtime.MutableFloatState
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,6 +15,7 @@ class AccountScreenView:ViewModel() {
  private   var _state by mutableStateOf(Edits())
  private   var list = MutableStateFlow(emptyList<Edits>())
     val listItems = list.asStateFlow()
+
 
    val state :Edits
        get () =_state
@@ -50,6 +52,17 @@ class AccountScreenView:ViewModel() {
 
 
         list.value += edt
+        clearValues()
+    }
+
+    fun clearValues(){
+        _state = _state.copy(
+            name ="",
+            surName = "",
+            address = "",
+            birthDate = "",
+            isFocused = true,
+        )
     }
 
 

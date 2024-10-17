@@ -18,7 +18,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -35,6 +39,8 @@ fun EditDesign(
     keyboardType: KeyboardOptions,
     informText:String,
     isHide:Boolean,
+    focusRequester: FocusRequester,
+    isFocused:Boolean,
     modifier: Modifier = Modifier
 ){
     Box(modifier = modifier.fillMaxWidth()) {
@@ -53,6 +59,8 @@ fun EditDesign(
                         color = MaterialTheme.colorScheme.background
                     )
                     .fillMaxWidth()
+                    .focusRequester(focusRequester)
+                    .onFocusChanged {  isFocused = it.isFocused }
                     .align(Alignment.CenterVertically)
                     .height(MyConstantClass.heightValue)
                     .border(
