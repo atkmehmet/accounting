@@ -6,7 +6,5 @@ data class Edits(
     val name:String                      = "",
     val surName :String                  = "",
     val address:String                   = "",
-    val birthDate:String                 = "",
-    val focusRequester :FocusRequester   = FocusRequester(),
-    val isFocused      : Boolean         = false
+    val birthDate:String                 = ""
 )

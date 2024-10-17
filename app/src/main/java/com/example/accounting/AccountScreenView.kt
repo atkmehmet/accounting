@@ -6,6 +6,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.focus.FocusRequester
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,6 +17,8 @@ class AccountScreenView:ViewModel() {
  private   var _state by mutableStateOf(Edits())
  private   var list = MutableStateFlow(emptyList<Edits>())
     val listItems = list.asStateFlow()
+
+
 
 
    val state :Edits
@@ -60,8 +64,7 @@ class AccountScreenView:ViewModel() {
             name ="",
             surName = "",
             address = "",
-            birthDate = "",
-            isFocused = true,
+            birthDate = ""
         )
     }
 
