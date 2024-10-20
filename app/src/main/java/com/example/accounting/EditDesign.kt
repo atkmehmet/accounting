@@ -92,7 +92,7 @@ fun EditDesign(
       
 
         // Error message if input is empty
-        if (value.isEmpty() && !isEmpty) {
+        if (isHide) {
             Text(
                 text = "Please Write Information",
                 color = Color.Red,

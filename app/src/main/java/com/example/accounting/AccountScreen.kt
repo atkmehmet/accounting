@@ -2,6 +2,7 @@ package com.example.accounting
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
@@ -26,18 +27,22 @@ fun AccountScreen(view: AccountScreenView){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally){
         
+        Row (modifier = Modifier.align(Alignment.CenterHorizontally)){
+            Text(text = "Add Customer")
+        }
+        
         EditDesign(value = view.state.name,
             event ={view.updateName(newName = it) } ,
             isEmpty = false ,
             keyboardType =  KeyboardOptions(keyboardType = KeyboardType.Text),
-            informText = "Please Your Name" ,isHide = false,focusRequester1)
+            informText = "Please Your Name" ,isHide = true,focusRequester1)
 
 
         EditDesign(value = view.state.surName,
             event ={view.updateSurName( it) } ,
             isEmpty = false ,
             keyboardType =  KeyboardOptions(keyboardType = KeyboardType.Text),
-            informText = "Please Your SurName", isHide = false)
+            informText = "Please Your SurName", isHide = true)
 
         EditDesign(value = view.state.address,
             event ={view.updateAdress(it) } ,
@@ -48,7 +53,7 @@ fun AccountScreen(view: AccountScreenView){
         //DatePickerDocked()
         //DatePickerDocked2()
         EditDate(value = view.state.birthDate, event = {view.updateBirthDate(date = it)}, isEmpty =false , keyboardType = KeyboardOptions(keyboardType = KeyboardType.Text),
-            informText = "Please Choose Birth Date", isHide = false)
+            informText = "Please Choose Birth Date", isHide = true)
 
         Button(onClick = { view.addList()
         focusRequester1.requestFocus()
