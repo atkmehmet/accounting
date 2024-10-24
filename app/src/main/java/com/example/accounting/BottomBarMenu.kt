@@ -37,8 +37,10 @@ fun BottomMenu(){
 }
 @Composable
 fun NavigationHost(navController: NavHostController, modifier: Modifier = Modifier) {
+      val view = AccountScreenView()
+
     NavHost(navController = navController, startDestination = "home") {
-        composable("home") { HomePage() }
+        composable("home") { AccountScreen(view = view) }
         composable("profile") { ProfilePage() }
         composable("settings") { SettingsPage() }
     }
