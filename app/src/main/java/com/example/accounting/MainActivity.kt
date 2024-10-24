@@ -18,8 +18,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val view = AccountScreenView()
-            AccountScreen(view = view)
+          //  val view = AccountScreenView()
+        //    AccountScreen(view = view)
+
+            BottomMenu()
         }
     }
 }

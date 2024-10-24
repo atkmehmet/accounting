@@ -1,5 +1,8 @@
 package com.example.accounting
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -17,6 +20,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavHost
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 @Composable
@@ -25,14 +32,56 @@ fun BottomMenu(){
     Scaffold(bottomBar = {BottomNavigationBar(navController =navController)})
     {innerPadding->
 
-        MainScreen(Modifier.padding(innerPadding))
+        NavigationHost(navController = navController, modifier = Modifier.padding(innerPadding))
     }
 }
 @Composable
-fun MainScreen(modifier: Modifier){
-    
-    Text(text = "Main content", modifier = modifier.padding(16.dp))
+fun NavigationHost(navController: NavHostController, modifier: Modifier = Modifier) {
+    NavHost(navController = navController, startDestination = "home") {
+        composable("home") { HomePage() }
+        composable("profile") { ProfilePage() }
+        composable("settings") { SettingsPage() }
+    }
 }
+
+@Composable
+fun HomePage() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(text = "Welcome to the Home Page", style = MaterialTheme.typography.headlineMedium)
+    }
+}
+
+@Composable
+fun ProfilePage() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(text = "Welcome to the Profile Page", style = MaterialTheme.typography.headlineMedium)
+    }
+}
+
+@Composable
+fun SettingsPage() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(text = "Welcome to the Settings Page", style = MaterialTheme.typography.headlineMedium)
+    }
+}
+
+
+
 @Composable
 fun BottomNavigationBar(navController: NavController){
     var selectedIndex by remember {
@@ -56,6 +105,11 @@ val items = listOf(
                 selected = selectedIndex == index,
                 onClick = {
                     selectedIndex = index
+                    when (index) {
+                        0 -> navController.navigate("home")
+                        1 -> navController.navigate("profile")
+                        2 -> navController.navigate("settings")
+                    }
                 },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.White,
