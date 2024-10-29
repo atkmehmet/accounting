@@ -29,7 +29,7 @@ fun MoneyMovement (){
         EditDesign(value = "",
             event ={ } ,
             isEmpty = false ,
-            keyboardType =  KeyboardOptions(keyboardType = KeyboardType.Text),
+            keyboardType =  KeyboardOptions(keyboardType = KeyboardType.Number),
             informText = "Write Money", isHide = true)
 
         EditDesign(value = "",
