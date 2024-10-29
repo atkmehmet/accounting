@@ -41,7 +41,7 @@ fun NavigationHost(navController: NavHostController, modifier: Modifier = Modifi
 
     NavHost(navController = navController, startDestination = "home") {
         composable("home") { AccountScreen(view = view) }
-        composable("money") { ProfilePage() }
+        composable("money") { MoneyMovement()}
         composable("settings") { SettingsPage() }
     }
 }
