@@ -41,7 +41,7 @@ fun NavigationHost(navController: NavHostController, modifier: Modifier = Modifi
 
     NavHost(navController = navController, startDestination = "home") {
         composable("home") { AccountScreen(view = view) }
-        composable("profile") { ProfilePage() }
+        composable("money") { ProfilePage() }
         composable("settings") { SettingsPage() }
     }
 }
@@ -109,7 +109,7 @@ val items = listOf(
                     selectedIndex = index
                     when (index) {
                         0 -> navController.navigate("home")
-                        1 -> navController.navigate("profile")
+                        1 -> navController.navigate("money")
                         2 -> navController.navigate("settings")
                     }
                 },
