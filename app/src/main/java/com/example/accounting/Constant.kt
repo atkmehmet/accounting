@@ -9,5 +9,6 @@ class MyConstantClass{
          val heightValue    = 30.dp
          val textSizeValue  = 20.sp
          val paddingValue   = 10.dp
+        const val DELAY     = 5000
     }
 }
