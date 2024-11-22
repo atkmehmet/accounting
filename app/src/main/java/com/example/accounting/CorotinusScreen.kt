@@ -15,5 +15,9 @@ fun Screen(viewModel:ViewCorotinues = viewModel()){
     var b by remember {
         mutableStateOf("")
     }
-    
+
+    Calculator(a = a, onAChanged = {a = it}, b =b , onBChanged ={b = it} , result = viewModel.resulState ) {
+        viewModel.add(a,b)
+    }
+
 }

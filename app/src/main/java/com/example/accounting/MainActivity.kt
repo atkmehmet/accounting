@@ -21,7 +21,8 @@ class MainActivity : ComponentActivity() {
           //  val view = AccountScreenView()
         //    AccountScreen(view = view)
 
-            BottomMenu()
+           // BottomMenu()
+            Screen()
         }
     }
 }
